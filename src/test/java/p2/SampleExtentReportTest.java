@@ -49,7 +49,7 @@ public class SampleExtentReportTest {
 
 	}
 
-	@Test(enabled = false)
+	@Test()
 	public void sampleTestPass() throws IOException {
 
 		test = extent.createTest("Flipcart Login navigation check",
@@ -77,29 +77,29 @@ public class SampleExtentReportTest {
 
 	}
 
-	@Test
-	public void sampleTestFail() {
-		WebElement amzlogo = driver.findElement(By.xpath("//div[@id='nav-logo']"));
-		test = extent.createTest("Amazon url launch check",
-				"This test will check if the user succesffuly able to launch the amazon url or not");
-
-		try {
-			driver.get("https://www.aman.in/");
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-			String title = driver.getTitle();
-			System.out.println("Title is : " + title);
-			if (amzlogo.isDisplayed()) {
-				test.pass("Aamzon page is displaying successfuly");
-			} else {
-				test.fail("Unable to launch Amazon page");
-				test.log(Status.FAIL, "Getting some error while launching the amazon url");
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-	}
+//	@Test
+//	public void sampleTestFail() {
+//		WebElement amzlogo = driver.findElement(By.xpath("//div[@id='nav-logo']"));
+//		test = extent.createTest("Amazon url launch check",
+//				"This test will check if the user succesffuly able to launch the amazon url or not");
+//
+//		try {
+//			driver.get("https://www.aman.in/");
+//			driver.manage().window().maximize();
+//			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+//			String title = driver.getTitle();
+//			System.out.println("Title is : " + title);
+//			if (amzlogo.isDisplayed()) {
+//				test.pass("Aamzon page is displaying successfuly");
+//			} else {
+//				test.fail("Unable to launch Amazon page");
+//				test.log(Status.FAIL, "Getting some error while launching the amazon url");
+//			}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//
+//	}
 
 	@AfterClass
 	public void endTest() {
