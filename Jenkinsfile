@@ -1,9 +1,7 @@
 pipeline {
     agent any
 
-    environment {
-        MAVEN_HOME = tool 'MAVEN3' // Make sure 'Maven 3' is configured in Jenkins tools
-    }
+   
 
     stages {
         stage('Checkout') {
@@ -23,7 +21,7 @@ pipeline {
 
     post {
         always {
-            testng '**/target/surefire-reports/testng-results.xml'
+            junit '**/target/surefire-reports/testng-results.xml'
         }
     }
 }
